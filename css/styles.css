@@ -45,9 +45,11 @@ p {
     color: #eee;
 }
 
+
+
 /* ---- Layout Rules ---- */
 main {
-    margin: 10vh 1em 10vh;
+    margin: 10vh 1em 10vh;    
 }
 
 .main-hero {
@@ -56,8 +58,18 @@ main {
 }
 
 section {
+
     position: relative;
     min-height: 80vh;
+}
+
+nav #navbar__list { 
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-around;
+   
+   
 }
 
 
@@ -88,13 +100,46 @@ section {
     transition: ease 0.3s all;
 }
 
+a { 
+    margin: 0 3px;
+    padding: 10px;
+    font-size: 1em;
+    color: #000;
+    font-family: sans-serif;
+    border: 2px solid black;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+a:hover { 
+    cursor: pointer;
+}
+
+.active { 
+    margin: 0 3px;
+    padding: 3px;
+    font-size: 1.2em;
+    color: white;
+    background-color: blue;
+    font-family: sans-serif;
+    border: 2px solid blue;
+    border-radius: 4px;
+    text-decoration: none;
+
+}
+
 /* Header Styles */
 .page__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: #fff;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.553);
+    height: 80px;
 }
 
 /* Footer Styles */

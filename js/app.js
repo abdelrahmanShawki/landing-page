@@ -39,13 +39,57 @@
 */
 
 // build the nav
+const navUL = document.querySelector('#navbar__list');
+const fragment = document.createDocumentFragment();
+const addElements = () => {
+    for(let i = 0 ; i < 4; i++) { 
+        const newElement = document.createElement('a');
+        const newLi = document.createElement('li');
+        newElement.innerText = `section  ${i + 1}`;
+        newElement.setAttribute('href' , `section${i+1}`);
+        newLi.appendChild(newElement);
+        fragment.appendChild(newLi);
+    }
+    navUL.appendChild(fragment);
+}
 
+addElements();
 
 // Add class 'active' to section when near top of viewport
 
+const removeActive = () => { 
+    const links = document.querySelector('a.active');
+    if (links === null) {
+        return; // If no element found, exit the function early
+    }
+    links.classList.remove('active');
+
+}
+
+
+
+navUL.addEventListener('click' , (event) => {
+    event.preventDefault();
+    if(event.target.tagName === 'A') { 
+        removeActive();
+        event.target.classList.add('active');
+
+        // making scrolling 
+        scroll(event);
+
+    }
+});
+
 
 // Scroll to anchor ID using scrollTO event
-
+const scroll = (event) => {
+       const targetHref = event.target.getAttribute('href');
+        const targetSection = document.querySelector('#'+targetHref);
+        
+        if(targetSection) { 
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+}
 
 /**
  * End Main Functions
